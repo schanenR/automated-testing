@@ -1,5 +1,7 @@
 
 # card.rb
+FACE_CARDS = {1 => "Ace", 11 => "Jack", 12 => "Queen", 13 => "King"}
+
 
 class Card
   attr_reader :value, :suit
@@ -18,7 +20,15 @@ class Card
   end
 
   def to_s
-    return "#{value} of #{suit.to_s}"
+    if (11..13).include?(@value) || @value == 1
+      face_card = face_conversion(@value)
+      return "#{face_card} of #{suit}"
+    end
+      return "#{value} of #{suit.to_s}"
+  end
+
+  def face_conversion(value)
+    return FACE_CARDS[value]
   end
 
 end
