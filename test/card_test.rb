@@ -62,18 +62,24 @@ describe Card do
       expect _(string_1).must_equal 'King of diamonds'
       expect _(string_2).must_equal 'Jack of spades'
 
+      p card_1.value
+      p card_2.suit
+
     end
   end
 
   describe "Reader methods" do
 
     it "Can retrieve the value of the card using a `.value`." do
-      # ensure that `.value works as expected`
+      card = Card.new(13, :hearts)
+
+      expect (card.value).must_equal 13
     end
 
     it "Can retrieve the value of the card using a `.suit`." do
-      # ensure that `.suit works as expected returning the symbol of the suit`
+      card = Card.new(4,:clubs)
 
+      expect (card.suit).must_equal :clubs
     end
   end
 
